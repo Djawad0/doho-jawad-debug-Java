@@ -1,21 +1,25 @@
 package com.hemebiotech.analytics;
 
 public class Main {
-	
 
 	public static void main(String[] args) {
 		
-		ISymptomReader test1 = new ReadSymptomDataFromFile("symptoms.txt");
-		ISymptomWriter test2 = new WriteSymptomDataToFile();
-		AnalyticsCounter test3 = new AnalyticsCounter();
+		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
+		ISymptomWriter writer = new WriteSymptomDataToFile();
+		AnalyticsCounter count = new AnalyticsCounter();
 		
-		test1.GetSymptoms();
-		test3.countSymptoms(test1.GetSymptoms());
-		test3.sortSymptoms(test3.countSymptoms(test1.GetSymptoms()));
-		test2.writeSymptoms(test3.sortSymptoms(test3.countSymptoms(test1.GetSymptoms())));
+		/**
+		 * Call up the different methods in order.
+         * 1 - Read the file and store the different lines in a list.
+         * 2 - Count the number of occurrences for each symptom.
+         * 3 - Sort Symptoms alphabetically.
+         * 4 - Create a file by writing the Symptoms with their number of occurrences in alphabetical order.
+		 */
 		
+		reader.GetSymptoms();
+		count.countSymptoms(reader.GetSymptoms());
+		count.sortSymptoms(count.countSymptoms(reader.GetSymptoms()));
+		writer.writeSymptoms(count.sortSymptoms(count.countSymptoms(reader.GetSymptoms())));
 		
-
 	}
-
 }
