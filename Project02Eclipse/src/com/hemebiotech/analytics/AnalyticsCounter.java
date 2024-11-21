@@ -7,6 +7,25 @@ import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	
+	ISymptomReader reader;
+	ISymptomWriter writer;
+	
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) { 
+		
+		this.reader = reader;
+		this.writer = writer;
+		
+	}
+	
+	
+	
+	
+	public List<String> getSymptoms() { 
+		
+		return reader.GetSymptoms();
+		
+	}
+	
 	/**
 	 * This method will count the number of occurrences for each symptom
 	 * and add them to a list (key, value) with the symptom name as key 
@@ -47,4 +66,12 @@ public class AnalyticsCounter {
 	
 			return result;		
 		}
+		
+		
+		public void writeSymptoms(Map<String, Integer> symptoms) { 
+			
+			writer.writeSymptoms(symptoms);
+			
+		}
+		
 }

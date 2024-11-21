@@ -4,9 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
-		ISymptomWriter writer = new WriteSymptomDataToFile();
-		AnalyticsCounter count = new AnalyticsCounter();
+		//ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
+		//ISymptomWriter writer = new WriteSymptomDataToFile();
+		AnalyticsCounter count = new AnalyticsCounter(new ReadSymptomDataFromFile("symptoms.txt"), new WriteSymptomDataToFile());
 		
 		/**
 		 * Call up the different methods in order.
@@ -16,10 +16,10 @@ public class Main {
          * 4 - Create a file by writing the Symptoms with their number of occurrences in alphabetical order.
 		 */
 		
-		reader.GetSymptoms();
-		count.countSymptoms(reader.GetSymptoms());
-		count.sortSymptoms(count.countSymptoms(reader.GetSymptoms()));
-		writer.writeSymptoms(count.sortSymptoms(count.countSymptoms(reader.GetSymptoms())));
+		count.getSymptoms();
+		count.countSymptoms(count.getSymptoms());
+		count.sortSymptoms(count.countSymptoms(count.getSymptoms()));
+		count.writeSymptoms(count.sortSymptoms(count.countSymptoms(count.getSymptoms())));
 		
 	}
 }
