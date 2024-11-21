@@ -26,7 +26,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 		        }
 		            
 					try {
-						BufferedWriter writer = new BufferedWriter(new FileWriter("result.txt"));
+						BufferedWriter writer = new BufferedWriter(new FileWriter("result.out"));
 						writer.write(builder.toString());
 						writer.close();
 					} catch (IOException e) {
