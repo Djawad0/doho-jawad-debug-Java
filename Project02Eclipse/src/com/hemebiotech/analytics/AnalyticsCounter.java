@@ -10,6 +10,12 @@ public class AnalyticsCounter {
 	ISymptomReader reader;
 	ISymptomWriter writer;
 	
+	/**
+	 * 
+	 * @param reader is used to retrieve the class instance ReadSymptomDataFromFile.
+	 * @param writer is used to retrieve the class instance WriteSymptomDataToFile.
+	 */
+	
 	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) { 
 		
 		this.reader = reader;
@@ -17,13 +23,14 @@ public class AnalyticsCounter {
 		
 	}
 	
-	
-	
+	/**
+	 * 
+	 * @return the entry list.
+	 */
 	
 	public List<String> getSymptoms() { 
 		
-		return reader.GetSymptoms();
-		
+		return reader.GetSymptoms();	
 	}
 	
 	/**
@@ -67,11 +74,14 @@ public class AnalyticsCounter {
 			return result;		
 		}
 		
+		/**
+		 * Calling the method writeSymptoms.
+		 * @param symptoms list sort in alphabetical order.
+		 */
 		
 		public void writeSymptoms(Map<String, Integer> symptoms) { 
 			
 			writer.writeSymptoms(symptoms);
 			
-		}
-		
+		}	
 }

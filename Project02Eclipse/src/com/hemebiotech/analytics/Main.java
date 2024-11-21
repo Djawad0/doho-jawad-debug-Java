@@ -4,8 +4,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
-		//ISymptomWriter writer = new WriteSymptomDataToFile();
 		AnalyticsCounter count = new AnalyticsCounter(new ReadSymptomDataFromFile("symptoms.txt"), new WriteSymptomDataToFile());
 		
 		/**
