@@ -1,0 +1,4 @@
+/bin/
+*.txt
+WriteSymptomDataToFile.java
+.project/
